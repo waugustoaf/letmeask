@@ -12,7 +12,6 @@ export const Container = styled.button<ButtonProps>`
   outline: none;
 
   height: 50px;
-  margin-top: 64px;
   border-radius: 8px;
   padding: 0 32px;
 
