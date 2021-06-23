@@ -13,12 +13,14 @@ interface AuthProps {
   user: User | undefined;
   setUser: React.Dispatch<React.SetStateAction<User>>;
   signInWithGoogle: () => Promise<void>;
+  loading: boolean;
 }
 
 const AuthContext = createContext({} as AuthProps);
 
 const AuthProvider: React.FC = ({ children }) => {
   const [user, setUser] = useState<User>({} as User);
+  const [loading, setLoading] = useState(true);
   const history = useHistory();
 
   useEffect(() => {
@@ -35,7 +37,9 @@ const AuthProvider: React.FC = ({ children }) => {
           name: displayName,
           avatar: photoURL,
         });
+        setLoading(false);
       } else {
+        setLoading(false);
         history.push('/');
       }
     });
@@ -66,7 +70,7 @@ const AuthProvider: React.FC = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, signInWithGoogle }}>
+    <AuthContext.Provider value={{ user, setUser, signInWithGoogle, loading }}>
       {children}
     </AuthContext.Provider>
   );

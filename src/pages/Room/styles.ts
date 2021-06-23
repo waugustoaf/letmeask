@@ -62,7 +62,7 @@ export const Container = styled.div`
         align-items: center;
         margin-top: 16px;
 
-        span {
+        > span {
           font-size: 14px;
           color: #737380;
           font-weight: 500;
@@ -76,6 +76,24 @@ export const Container = styled.div`
             text-decoration: underline;
             font-size: 14;
             font-weight: 500;
+          }
+        }
+
+        > div {
+          display: flex;
+          align-items: center;
+
+          img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+          }
+
+          span {
+            margin-left: 8px;
+            color: #29292e;
+            font-weight: 500;
+            font-size: 14px;
           }
         }
       }
