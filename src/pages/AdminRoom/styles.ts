@@ -15,6 +15,15 @@ export const Container = styled.div`
       > img {
         max-height: 45px;
       }
+
+      > div {
+        display: flex;
+        gap: 16px;
+
+        button {
+          height: 40px;
+        }
+      }
     }
   }
 
@@ -103,4 +112,45 @@ export const Container = styled.div`
 
 export const QuestionList = styled.div`
   margin-top: 32px;
+`;
+
+export const ModalDelete = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-bottom: 24px;
+  }
+
+  h2 {
+    margin-bottom: 12px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+
+  div {
+    display: flex;
+    gap: 8px;
+
+    button {
+      padding: 14px 32px;
+      color: #737380;
+      background: #dbdcdd;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+
+      &.delete-button {
+        color: #fff;
+        background: #e73f5d;
+      }
+    }
+  }
 `;

@@ -5,6 +5,7 @@ import googleIconImg from '../../assets/images/google-icon.svg';
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import { Button } from '../../components/Button';
+import { ErrorModal } from '../../components/ErrorModal';
 import { useAuth } from '../../hooks/auth';
 import { database } from '../../services/firebase';
 import { Container, Content, CreateRoom } from './styles';
@@ -13,6 +14,13 @@ export const Home: React.FC = () => {
   const history = useHistory();
   const { user, signInWithGoogle } = useAuth();
   const [roomCode, setRoomCode] = useState('');
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [modalMessage, setModalMessage] = useState('');
+
+  const handleOpenModal = (message: string) => {
+    setModalMessage(message);
+    setIsModalVisible(true);
+  };
 
   const handleCreateRoom = async () => {
     if (!user || Object.keys(user).length === 0) {
@@ -30,7 +38,13 @@ export const Home: React.FC = () => {
     const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
-      alert('Room does not exists');
+      handleOpenModal('Essa sala não existe!');
+      setRoomCode('');
+      return;
+    }
+
+    if (roomRef.val().closedAt) {
+      handleOpenModal('Essa sala não está mais disponível! 😿');
       setRoomCode('');
       return;
     }
@@ -67,6 +81,11 @@ export const Home: React.FC = () => {
           </form>
         </Content>
       </main>
+      <ErrorModal
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+        message={modalMessage}
+      />
     </Container>
   );
 };

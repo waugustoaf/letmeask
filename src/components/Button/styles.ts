@@ -3,12 +3,16 @@ import styled from 'styled-components';
 interface ButtonProps {
   color?: string;
   fontColor?: string;
+  borderColor?: string;
 }
 
 export const Container = styled.button<ButtonProps>`
-  background: ${props => props.color || '#835afd'};
-  color: ${props => props.fontColor || '#fff'};
-  border: none;
+  background: ${props =>
+    props.color || !!props.borderColor ? '#fff' : '#835afd'};
+  color: ${props =>
+    props.fontColor || !!props.borderColor ? '#835afd' : '#fff'};
+  border: ${props =>
+    !!props.borderColor ? `1px solid ${props.borderColor}` : 'none'};
   outline: none;
 
   height: 50px;
