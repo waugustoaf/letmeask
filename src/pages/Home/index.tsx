@@ -50,7 +50,12 @@ export const Home: React.FC = () => {
       return;
     }
 
-    history.push(`/rooms/${roomCode}`);
+    if(roomRef.val().authorId === user?.id) {
+      history.push(`/admin/rooms/${roomCode}`);
+    } else {
+      history.push(`/rooms/${roomCode}`);
+    }
+
   };
 
   return (

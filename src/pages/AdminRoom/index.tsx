@@ -18,6 +18,8 @@ import { toastOptions } from '../../utils/toastOptions';
 import { useTheme } from 'styled-components';
 import { StyledTheme } from '../../dtos/styled';
 import { ChangeTheme } from '../../components/ChangeTheme';
+import { useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
 
 interface RoomParams {
   id: string;
@@ -26,6 +28,7 @@ interface RoomParams {
 export const AdminRoom: React.FC = () => {
   const { id: roomId } = useParams<RoomParams>();
   const { questions, title, setRoomId, loading } = useRoom();
+  const { user, loading: loadingUser } = useAuth();
   const [currentModalQuestionId, setCurrentModalQuestionId] = useState<
     string | null
   >(null);
@@ -33,6 +36,17 @@ export const AdminRoom: React.FC = () => {
   const theme = useTheme() as StyledTheme;
 
   const history = useHistory();
+
+  useEffect(() => {
+    (async () => {
+      const authorId = await (
+        await database.ref(`/rooms/${roomId}`).get()
+      ).val().authorId;
+      if (authorId !== user?.id && !loadingUser) {
+        history.push(`/rooms/${roomId}`);
+      }
+    })();
+  }, [history, roomId, user?.id, loadingUser]);
 
   setRoomId(roomId);
 
