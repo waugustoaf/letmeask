@@ -21,12 +21,18 @@ export const Container = styled.div`
           max-height: 45px;
         }
       }
+
+      @media screen and (max-width: 912px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   }
 
   main {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 32px;
 
     .room-title {
       margin: 32px 0 24px;

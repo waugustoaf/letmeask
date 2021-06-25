@@ -1,0 +1,42 @@
+[debug] [2021-06-25T22:34:44.928Z] ----------------------------------------------------------------------
+[debug] [2021-06-25T22:34:44.930Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\waugustoaf\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-06-25T22:34:44.930Z] CLI Version:   9.14.0
+[debug] [2021-06-25T22:34:44.930Z] Platform:      win32
+[debug] [2021-06-25T22:34:44.930Z] Node Version:  v14.17.0
+[debug] [2021-06-25T22:34:44.931Z] Time:          Fri Jun 25 2021 19:34:44 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2021-06-25T22:34:44.931Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-25T22:34:44.939Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-25T22:34:44.940Z] > authorizing via signed-in user (waugustoaf@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Documents\br.com.waugustoaf\free-weeks\NLW-Together\React.JS\letmeask
+
+[debug] [2021-06-25T22:45:04.487Z] ----------------------------------------------------------------------
+[debug] [2021-06-25T22:45:04.489Z] Command:       C:\Program Files (x86)\nodejs\node.exe C:\Users\waugustoaf\AppData\Local\Yarn\Data\global\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-06-25T22:45:04.489Z] CLI Version:   9.14.0
+[debug] [2021-06-25T22:45:04.489Z] Platform:      win32
+[debug] [2021-06-25T22:45:04.490Z] Node Version:  v14.17.0
+[debug] [2021-06-25T22:45:04.491Z] Time:          Fri Jun 25 2021 19:45:04 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2021-06-25T22:45:04.491Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-25T22:45:04.499Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-25T22:45:04.500Z] > authorizing via signed-in user (waugustoaf@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Documents\br.com.waugustoaf\free-weeks\NLW-Together\React.JS\letmeask
+

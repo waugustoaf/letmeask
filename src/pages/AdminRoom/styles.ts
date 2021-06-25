@@ -29,6 +29,16 @@ export const Container = styled.div`
         button {
           height: 40px;
         }
+
+        @media screen and (max-width: 912px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media screen and (max-width: 912px) {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   }
@@ -36,6 +46,7 @@ export const Container = styled.div`
   main {
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 32px;
 
     .room-title {
       margin: 32px 0 24px;

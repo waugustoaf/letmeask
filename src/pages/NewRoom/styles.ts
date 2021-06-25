@@ -32,6 +32,10 @@ export const Container = styled.div`
       margin-top: 6px;
       color: ${props => props.theme.colors.background};
     }
+
+    @media screen and (max-width: 912px) {
+      display: none;
+    }
   }
 
   main {
