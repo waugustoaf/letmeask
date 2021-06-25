@@ -8,9 +8,11 @@ interface ButtonProps {
 
 export const Container = styled.button<ButtonProps>`
   background: ${props =>
-    props.color || !!props.borderColor ? '#fff' : '#835afd'};
+    props.color || !!props.borderColor ? '#fff' : props.theme.colors.themeTwo};
   color: ${props =>
-    props.fontColor || !!props.borderColor ? '#835afd' : '#fff'};
+    props.fontColor || !!props.borderColor
+      ? props.theme.colors.themeTwo
+      : '#fff'};
   border: ${props =>
     !!props.borderColor ? `1px solid ${props.borderColor}` : 'none'};
   outline: none;

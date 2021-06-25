@@ -11,7 +11,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    background: #836afd;
+    background: ${props => props.theme.colors.themeTwo};
     color: #fff;
 
     padding: 120px 80px;
@@ -24,13 +24,14 @@ export const Container = styled.div`
       font: 700 36px 'poppins', sans-serif;
       line-height: 42px;
       margin-top: 16px;
+      color: ${props => props.theme.colors.themeOne};
     }
 
     p {
       font-size: 24px;
       line-height: 32px;
       margin-top: 6px;
-      color: #f8f8f8;
+      color: ${props => props.theme.colors.themeOne};
     }
   }
 
@@ -88,6 +89,7 @@ export const Content = styled.div`
       padding: 0 16px;
       background-color: #fff;
       color: #a8a8b3;
+      outline: none;
     }
 
     button {

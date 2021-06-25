@@ -6,14 +6,14 @@ export const Container = styled.button`
   overflow: hidden;
 
   background: #fff;
-  border: 1px solid #835afd;
+  border: 1px solid ${props => props.theme.colors.themeTwo};
   cursor: pointer;
 
   display: flex;
 
   div {
     height: 100%;
-    background: #835afd;
+    background: ${props => props.theme.colors.themeTwo};
     padding: 0 12px;
     display: flex;
     justify-content: center;

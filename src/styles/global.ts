@@ -1,6 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const GlobalStyle = createGlobalStyle`
+interface GlobalProps {
+  isDarkTheme: boolean;
+}
+
+export const GlobalStyle = createGlobalStyle<GlobalProps>`
   * {
     padding: 0;
     margin: 0;
@@ -8,8 +12,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #f8f8f8;
-    color: #29292e
+    background: ${props => props.isDarkTheme ? '#575757' : '#f8f8f8'};
+    color: ${props => props.isDarkTheme ? '#f8f8f8' : '#29292E'};
+    position: relative;
   }
   
   body, input, button, textarea {

@@ -3,7 +3,10 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     colors: {
-      [key: string]: string;
-    }
+      [prop: string]: string;
+    };
+    hovers: {
+      [prop: string]: string;
+    };
   }
 }

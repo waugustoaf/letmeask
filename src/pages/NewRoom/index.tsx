@@ -37,7 +37,6 @@ export const NewRoom: React.FC = () => {
       <main>
         <Content>
           <img src={logoImg} alt='Letmeask' />
-          <h1>{user ? user.name : ''}</h1>
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input

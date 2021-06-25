@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 import deleteImg from '../../assets/images/delete.svg';
 import logoImg from '../../assets/images/logo.svg';
 import { Button } from '../../components/Button';
@@ -11,8 +11,13 @@ import { database } from '../../services/firebase';
 import { Container, QuestionList, ModalDelete } from './styles';
 import Modal from 'react-modal';
 import closeImg from '../../assets/images/close.svg';
+import checkImg from '../../assets/images/check.svg';
+import answerImg from '../../assets/images/answer.svg';
 import { toast } from 'react-hot-toast';
 import { toastOptions } from '../../utils/toastOptions';
+import { useTheme } from 'styled-components';
+import { StyledTheme } from '../../dtos/styled';
+import { ChangeTheme } from '../../components/ChangeTheme';
 
 interface RoomParams {
   id: string;
@@ -25,6 +30,8 @@ export const AdminRoom: React.FC = () => {
     string | null
   >(null);
 
+  const theme = useTheme() as StyledTheme;
+
   const history = useHistory();
 
   setRoomId(roomId);
@@ -36,6 +43,8 @@ export const AdminRoom: React.FC = () => {
       maxWidth: 590,
       borderRadius: '8px',
       margin: 'auto auto',
+      // @ts-ignore
+      backgroundColor: theme.colors.details,
     },
     overlay: {
       background: 'rgba(0,0,0,0.7)',
@@ -52,7 +61,7 @@ export const AdminRoom: React.FC = () => {
       .remove();
     setCurrentModalQuestionId(null);
     toast.error('Pergunta deletada!', {
-      ...toastOptions,
+      ...toastOptions(theme),
       iconTheme: { primary: '#E73F5D', secondary: '#fff' },
     });
   };
@@ -62,17 +71,35 @@ export const AdminRoom: React.FC = () => {
       closedAt: new Date(),
     });
 
-    history.push('/')
+    history.push('/');
+  };
+
+  const handleCheckQuestionAsAnswered = async (questionId: string) => {
+    const currentQuestion = questions.find(item => item.id === questionId);
+
+    await database
+      .ref(`rooms/${roomId}/questions/${questionId}`)
+      .update({ isAnswered: currentQuestion?.isAnswered ? false : true });
+  };
+
+  const handleHighlightQuestion = async (questionId: string) => {
+    const currentQuestion = questions.find(item => item.id === questionId);
+
+    await database
+      .ref(`rooms/${roomId}/questions/${questionId}`)
+      .update({ isHighlighted: currentQuestion?.isHighlighted ? false : true });
   };
 
   return (
     <Container>
       <header>
         <div>
-          <img src={logoImg} alt='Letmeask' />
+          <Link to='/' title='Letmeask'>
+            <img src={logoImg} alt='Letmeask' />
+          </Link>
           <div>
             <RoomCode code={roomId} />
-            <Button borderColor='#835afd' onClick={handleEndRoom}>
+            <Button borderColor={theme.colors.themeTwo} onClick={handleEndRoom}>
               Encerrar sala
             </Button>
           </div>
@@ -96,7 +123,28 @@ export const AdminRoom: React.FC = () => {
                 key={question.id}
                 content={question.content}
                 author={question.author}
+                isAnswered={question.isAnswered}
+                isHighlighted={question.isHighlighted}
               >
+                {!question.isAnswered && (
+                  <>
+                    <button
+                      type='button'
+                      onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                    >
+                      <img
+                        src={checkImg}
+                        alt='Marcar pergunta como respondida'
+                      />
+                    </button>
+                    <button
+                      type='button'
+                      onClick={() => handleHighlightQuestion(question.id)}
+                    >
+                      <img src={answerImg} alt='Dar destaque à pergunta' />
+                    </button>
+                  </>
+                )}
                 <button
                   type='button'
                   onClick={() => setCurrentModalQuestionId(question.id)}
@@ -136,6 +184,7 @@ export const AdminRoom: React.FC = () => {
           </div>
         </ModalDelete>
       </Modal>
+      <ChangeTheme />
     </Container>
   );
 };

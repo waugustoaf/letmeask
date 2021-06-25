@@ -5,6 +5,7 @@ import googleIconImg from '../../assets/images/google-icon.svg';
 import illustrationImg from '../../assets/images/illustration.svg';
 import logoImg from '../../assets/images/logo.svg';
 import { Button } from '../../components/Button';
+import { ChangeTheme } from '../../components/ChangeTheme';
 import { ErrorModal } from '../../components/ErrorModal';
 import { useAuth } from '../../hooks/auth';
 import { database } from '../../services/firebase';
@@ -86,6 +87,7 @@ export const Home: React.FC = () => {
         setIsModalVisible={setIsModalVisible}
         message={modalMessage}
       />
+      <ChangeTheme />
     </Container>
   );
 };

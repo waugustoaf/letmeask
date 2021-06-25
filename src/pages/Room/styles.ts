@@ -12,8 +12,14 @@ export const Container = styled.div`
       justify-content: space-between;
       align-items: center;
 
-      > img {
-        max-height: 45px;
+      a {
+        background-color: transparent;
+        border: none;
+        outline: none;
+
+        > img {
+          max-height: 45px;
+        }
       }
     }
   }
@@ -30,12 +36,12 @@ export const Container = styled.div`
       h1 {
         font-family: 'Poppins', sans-serif;
         font-size: 24px;
-        color: #29292e;
+        color: ${props => props.theme.colors.themeOne};
       }
 
       span {
         margin-left: 16px;
-        background: #e559f9;
+        background: ${props => props.theme.colors.secondaryDark};
         border-radius: 9999px;
         padding: 8px 16px;
         color: #fff;
@@ -50,10 +56,11 @@ export const Container = styled.div`
         outline: 0;
         padding: 16px;
         border-radius: 8px;
-        background: #fefefe;
+        background: ${props => props.theme.colors.details};
         box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
         resize: vertical;
         min-height: 130px;
+        color: ${props => props.theme.colors.themeOne};
       }
 
       .form-footer {
@@ -64,7 +71,7 @@ export const Container = styled.div`
 
         > span {
           font-size: 14px;
-          color: #737380;
+          color: ${props => props.theme.colors.primaryDark};
           font-weight: 500;
 
           button {
@@ -72,7 +79,7 @@ export const Container = styled.div`
             outline: 0;
             border: 0;
 
-            color: #835afd;
+            color: ${props => props.theme.colors.themeTwo};
             text-decoration: underline;
             font-size: 14;
             font-weight: 500;
@@ -91,7 +98,7 @@ export const Container = styled.div`
 
           span {
             margin-left: 8px;
-            color: #29292e;
+            color: ${props => props.theme.colors.themeOne};
             font-weight: 500;
             font-size: 14px;
           }
@@ -102,5 +109,5 @@ export const Container = styled.div`
 `;
 
 export const QuestionList = styled.div`
-  margin-top: 32px;
+  margin: 32px 0;
 `;

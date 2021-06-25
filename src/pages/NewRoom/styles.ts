@@ -11,7 +11,7 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
 
-    background: #836afd;
+    background: ${props => props.theme.colors.themeTwo};
     color: #fff;
 
     padding: 120px 80px;
@@ -30,7 +30,7 @@ export const Container = styled.div`
       font-size: 24px;
       line-height: 32px;
       margin-top: 6px;
-      color: #f8f8f8;
+      color: ${props => props.theme.colors.background};
     }
   }
 
@@ -84,11 +84,12 @@ export const Content = styled.div`
 
   p {
     font-size: 14px;
-    color: #737380;
+    color: ${props => props.theme.colors.themeOne};
     margin-top: 16px;
 
     a {
-      color: #e559f9;
+      color: ${props => props.theme.colors.secondaryDark};
+      text-decoration: none;
     }
   }
 `;
