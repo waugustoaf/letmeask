@@ -24,14 +24,14 @@ export const Container = styled.div`
       font: 700 36px 'poppins', sans-serif;
       line-height: 42px;
       margin-top: 16px;
-      color: ${props => props.theme.colors.themeOne};
+      color: ${props => props.theme.colors.white};
     }
 
     p {
       font-size: 24px;
       line-height: 32px;
       margin-top: 6px;
-      color: ${props => props.theme.colors.themeOne};
+      color: ${props => props.theme.colors.white};
     }
 
     @media screen and (max-width: 912px) {
